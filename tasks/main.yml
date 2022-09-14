@@ -17,7 +17,7 @@
       template:
         src: server.{{ mariadb_version }}.my.cnf.j2
         dest: /etc/mysql/my.cnf
-        mode: 0644
+        mode: '644'
       notify: restart mariadb
       tags: config
 
@@ -26,7 +26,7 @@
         dest: /etc/mysql/debian.cnf
         owner: root
         group: root
-        mode: 0600
+        mode: '600'
         regexp: '^socket\s+=\s+\S+'
         replace: 'socket = {{ mariadb_socket_file }}'
       tags: config
@@ -57,7 +57,7 @@
         dest: /root/.my.cnf
         owner: root
         group: root
-        mode: 0600
+        mode: '600'
       tags: config
 
     - name: Configure MariaDB root password
